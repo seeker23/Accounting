@@ -1,0 +1,78 @@
+﻿@model IEnumerable<FacturiDinGrid>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Facturi din system</h1>
+<p><a asp-action="AddOrEdit" class="btn btn-outline-success"><i class="fa fa-plus-square"></i> Adauga factura</a></p>
+<table>
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.IdFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdLocatie)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumarFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataFactura)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeClient)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NumeProdus)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cantitate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PretUnitar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Valoare)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdFactura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdLocatie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumarFactura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataFactura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeClient)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NumeProdus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cantitate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PretUnitar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Valoare)
+            </td>
+            <td>
+                <a asp-action="AddOrEdit" asp-route-idFactura="@item.IdFactura" asp-route-idLocatie="@item.IdLocatie">Edit<i class="fa fa-marker fa-lg"></i></a>
+                <a asp-action="Delete" asp-route-idFactura="@item.IdFactura" asp-route-idLocatie="@item.IdLocatie" class="text-danger ml-1" onclick="return confirm('Sunteti sigur ca vreti sa stergeti factura?')">Delete<i class="fa fa-trash-alt fa-lg"></i></a>
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

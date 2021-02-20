@@ -1,0 +1,57 @@
+﻿@model DetaliiFacturaReadOrCreate
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Formular adaugare factura</h4>
+<hr />
+<div class="col-md-6">
+    <form asp-action="AddorEdit">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <input type="hidden" asp-for="IdFactura" />
+        <div class="form-group">
+            <label asp-for="IdLocatie" class="control-label"></label>
+            <input asp-for="IdLocatie" class="form-control" />
+            <span asp-validation-for="IdLocatie" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NumarFactura" class="control-label"></label>
+            <input asp-for="NumarFactura" class="form-control" />
+            <span asp-validation-for="NumarFactura" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NumeClient" class="control-label"></label>
+            <input asp-for="NumeClient" class="form-control" />
+            <span asp-validation-for="NumeClient" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="NumeProdus" class="control-label"></label>
+            <input asp-for="NumeProdus" class="form-control" />
+            <span asp-validation-for="NumeProdus" class="text-danger"></span>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label asp-for="Cantitate" class="control-label"></label>
+                <input asp-for="Cantitate" class="form-control" />
+                <span asp-validation-for="Cantitate" class="text-danger"></span>
+            </div>
+            <div class="form-group col-md-6">
+                <label asp-for="PretUnitar" class="control-label"></label>
+                <input asp-for="PretUnitar" class="form-control" />
+                <span asp-validation-for="PretUnitar" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <input type="submit" value="Submit" class="btn btn-secondary btn-block" />
+            </div>
+            <div class="form-group col-md-6">
+                <a asp-action="Index" class="btn btn-secondary btn-block"><i class="fa fa-table"></i> Back to List</a>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
